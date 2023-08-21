@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SẢN PHẨM</title>
+    <link rel="stylesheet" href="/css/catagory.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerTop">
+            <div id="logoHeader">
+                <img src="/img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
+            </div>
+            <div id="headerSearch">
+                <input type="text" placeholder="  Tìm kiếm sản phẩm" id="searchText">
+                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div id="headerBtn">
+                <button type="button" class="btn" style="align-items: center;"><i class="fa-solid fa-bag-shopping"></i>
+                    <a href="/cart.html" style="text-decoration: none; color: black;">Giỏ hàng</a></button>
+                <div>
+                    <div class="dropdown" id="dropdown">
+                        <div class="dropbtn" id="drop">
+                            <img id="avatar" src="/img/avatar.jpg" alt="img" width="50px">
+                            <div style="padding-top: 20px; line-height: 0.5;">
+                                <p>Xin Chào,</p>
+                                <p id="username" style="font-weight: 600;">0000</a></p>
+                            </div>
+                        </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/index.html">Trang chủ</a>
+                            <a href="#about">Thông tin</a>
+                            <a onclick="logout()">Đăng xuất</a>
+                        </div>
+                    </div>
+                    <button id="btnlogin"><a href="/form-login.html" style="text-decoration: none;">Đăng
+                            nhập</a></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="navbar n1" style="display: flex; justify-content: center !important;">
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="#">GIỚI THIỆU</a></li>
+            <li><a href="/catagory.html">SẢN PHẨM</a></li>
+            <li><a href="#">TIN TỨC</a></li>
+            <li><a href="#">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="showcatagory">
+            <div class="sidebar">
+                <div class="catag">Danh mục Sản Phẩm</div>
+                <div id="catagory_list">
+                    <!-- <div onclick="">Xe đạp Thể thao</div>
+                    <div onclick="">Xe đạp Đua</div>
+                    <div onclick="">Xe đạp Đường phố</div>
+                    <div onclick="">Phụ kiện</div> -->
+                </div>
+            </div>
+            <div class="catagory-container">
+                <div class="catabar">
+                    <a href="/index.html"
+                        style="text-decoration: none; color: orange; font-weight: 600; font-size: 1.1rem;">TRANG CHỦ</a>
+                    <span style="font-size: 1.3rem; color: rgba(120, 120, 120, 0.584);">&emsp13;/&emsp14;</span>
+                    <span>SẢN PHẨM</span>
+                </div>
+                <div id="product_list">
+                    
+                </div>
+                <nav aria-label="...">
+                    <ul class="pagination pagination-lg">
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        </div>
+        <div class="support">
+            <div class="supportinfo">
+                <div class="supporticon">
+                    <img src="/img/fot_policy_image_1.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Miễn phí vận chuyển</p>
+                    <span>Với đơn hàng trên 1 triệu VNĐ</span>
+                </div>
+            </div>
+            <div class="supportinfo">
+                <div class="supporticon">
+                    <img src="/img/fot_policy_image_2.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Hỗ trợ 24/7</p>
+                    <span>Hỗ trợ mọi lúc</span>
+                </div>
+            </div>
+            <div class="supportinfo">
+                <div class="supporticon">
+                    <img src="/img/fot_policy_image_3.png" alt="">
+                </div>
+                <div class="info">
+                    <p>30 ngày đổi trả</p>
+                    <span>Đổi trả thoải mái</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>THÔNG TIN LIÊN HỆ</p>
+            <span>Bycicle.vn - Xe đạp chính hãng tại Việt Nam</span><br>
+            <ul style="line-height: 1.8;">
+                <li style="list-style: disc;">Địa chỉ : Tầng 22 Tháp A <br> Tòa nhà Sông Đà - Mễ Trì - Hà Nội</li>
+                <li style="list-style: disc;">Email : byciclevn@gmail.com</li>
+                <li style="list-style: disc;">Hotline : 0328326174</li>
+            </ul>
+        </div>
+        <div>
+            <p>LIÊN KẾT NHANH</p>
+            <ul style="padding:0;">
+                <li><a href="#">Đặt hàng xe đạp nhập khẩu</a></li>
+                <li><a href="#">Chính sách giao hàng</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Chính sách hợp tác</a></li>
+            </ul>
+        </div>
+        <div>
+            <p>THỜI GIAN MỞ CỬA</p>
+            <span>Mở cửa từ 8:00h - 20:00h từ <br> thứ 2 đến thứ 7 hàng tuần (CN nghỉ)</span><br>
+            <p>KẾT NỐI VỚI CHÚNG TÔI</p>
+            <div>
+                <span><i class="fa-brands fa-facebook"></i></span>&emsp;
+                <span><i class="fa-brands fa-instagram"></i></span>&emsp;
+                <span><i class="fa-brands fa-twitter"></i></span>&emsp;
+                <span><i class="fa-brands fa-youtube"></i></span>
+            </div>
+        </div>
+        <div>
+            <img src="/img/bicycle-high-resolution-logo-color-on-transparent-background (1).png" alt="">
+        </div>
+    </footer>
+    <script src="/js/catagory.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

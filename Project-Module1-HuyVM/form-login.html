@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/form-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>LOGIN BICYCLE</title>
+</head>
+
+<body>
+    <header>
+        <div id="logoHeader">
+            <img src="/img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
+        </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="form-box login">
+            <form action="" id="loginForm">
+                <h1 class="form-heading">ĐĂNG NHẬP</h1>
+                <div class="input-box">
+                    <input type="text" class="form-input" placeholder="Usename" id="login_name" required>
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="form-input" placeholder="Password" id="login_pass" required>
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">&ensp;Remember me</label>
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+                <div class="login-register">
+                    <p>Bạn chưa có tài khoản? <a href="" class="register-link"> Đăng ký</a>
+                    </p>
+                </div>
+                <p id="warninglog" style="color: red; font-size: smaller"></p>
+            </form>
+        </div>
+        <div class="form-box register">
+            <form action="">
+                <h1 class="form-heading">ĐĂNG KÝ</h1>
+                <div class="input-box">
+                    <input type="text" class="form-input" placeholder="Usename" id="input_name" required>
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="form-input" placeholder="Fullname" id="input_fullname" required>
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="form-input" placeholder="Email" id="input_email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="form-input" placeholder="Password" id="input_pass" required>
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="form-input" placeholder="ConfirmPassword" id="input_confirm" required>
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Tôi đồng ý với các điều khoản !</label>
+                </div>
+                <button type="button" class="btn" onclick="register()">Đăng ký</button>
+                <div class="login-register">
+                    <p>Bạn đã có tài khoản?<a href="" class="login-link">Đăng nhập</a>
+                    </p>
+                </div>
+                <p id="warningreg" style="color: red; font-size: smaller"></p>
+            </form>
+        </div>
+    </div>
+    <script src="js/form-login.js"></script>
+</body>
+
+</html>

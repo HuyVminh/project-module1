@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
+        </div>
+        <nav class="navbar">
+            <h3>ADMINISTRATION</h3>
+            <ul>
+                <a href="/product-management.html">
+                    <li class="nav-icon">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span>&nbsp;Sản Phẩm</span>
+                    </li>
+                </a>
+                <a href="/catarogy-management.html">
+                    <li class="nav-icon">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                        <span>&nbsp;Danh Mục</span>
+                    </li>
+                </a>
+                <a href="/order-management.html">
+                    <li class="nav-icon active">
+                        <i class="fa-solid fa-truck"></i>
+                        <span>&nbsp;Đơn Hàng</span>
+                    </li>
+                </a>
+                <a href="/user-management.html">
+                    <li class="nav-icon">
+                        <i class="fa-solid fa-users"></i>
+                        <span>&nbsp;Người Dùng</span>
+                    </li>
+                </a>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <nav class="navmain">
+            <ul>
+                <li class="notifications">
+                    <div>
+                        <span>3</span>
+                    </div>
+                    <i class="fa-regular fa-bell"></i>
+                </li>
+                <li class="notifications">
+                    <div>
+                        <span>5</span>
+                    </div>
+                    <i class="fa-regular fa-message"></i>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <div class="dropbtn" id="drop">
+                            <img id="avatar" src="/img/avatar.jpg" alt="img" width="50px">
+                            <div>
+                                <p>Xin Chào,</p>
+                                <p id="username" style="font-weight: 600;">Minh Huy</p>
+                            </div>
+                        </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#home">Home</a>
+                            <a href="#about">Thông tin</a>
+                            <a onclick="logout()">Đăng xuất</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="form-search">
+                <p>Quản lý Đơn hàng</p>
+                <div>
+                    <input type="text" id="search" placeholder="Nhập mã đơn hàng cần tìm kiếm">
+                    <button onclick="search()">Tìm kiếm</button>
+                </div>
+            </div>
+            <div class="table">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Người đặt hàng</th>
+                            <th>Thành tiền (VNĐ)</th>
+                            <th>Thời gian khởi tạo</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list">
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>Huy</td>
+                            <td>
+                                <ul>
+                                    <li style="border-bottom: 1px solid red;">
+                                        <span>xe dap</span> | <span>20.000$</span> | <span>4</span>
+                                    </li>
+                                    <li>
+                                        <span>xe dap</span> | <span>20.000$</span> | <span>4</span>
+                                    </li>
+                                    <li>
+                                        <span>xe dap</span> | <span>20.000$</span> | <span>4</span>
+                                    </li>
+                                    <li>
+                                        <span>xe dap</span> | <span>20.000$</span> | <span>4</span>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>400.000$</td>
+                            <td>12/02/20023</td>
+                            <td>dang cho</td>
+                            <td>
+                                <span>
+                                    <button style="background-color: blueviolet; cursor: pointer !important;">Accept</button>
+                                    <button style="background-color: rgb(3, 136, 213);">Cancel</button>
+                                </span>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-search orderinfo" id="orderdetails">
+                <!-- <p>Chi tiết đơn hàng</p>
+                <div class="detailinfo" id="user_order_info">
+
+                </div>-->
+            </div>
+            <div class="table orderinfo">
+                <table border="1" id="order_detail">
+                    <!-- <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody> -->
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="/js/order-management.js"></script>
+</body>
+
+</html>
