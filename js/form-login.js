@@ -35,7 +35,7 @@ function register() {
     else if (password.value !== inputconfirm.value) {
         warnR.innerHTML = "Mật khẩu chưa trùng khớp !";
     }
-    
+
     else {
         let users = JSON.parse(localStorage.getItem("users")) || [];
         let index1 = users.findIndex(user => user.email == email.value);
@@ -50,17 +50,18 @@ function register() {
                 email: email.value,
                 password: password.value,
                 role: 0,
+                status: 1,
                 cart: [],
             };
-            console.log(newUser);
             users.push(newUser);
             localStorage.setItem("users", JSON.stringify(users));
-            warnR.innerHTML = "Tạo tài khoản thành công";
+            alert("Tạo tài khoản thành công !");
             useName.value = "";
             fullName.value = "";
             email.value = "";
             password.value = "";
             inputconfirm.value = "";
+            warnR.innerHTML = "";
         }
     }
 }
@@ -78,14 +79,17 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         }
     }
     if (check) {
-        if (users[index].role == 0) {
-            localStorage.setItem("user_login", JSON.stringify(users[index].user_id));
-            window.location.href = "/index.html";
+        if (users[index].status == 0) {
+            alert("tài khoản của bạn hiện đang bị khóa !")
         } else {
-            localStorage.setItem("admin_login", JSON.stringify(users[index].user_id));
-            window.location.href = "/product-management.html";
+            if (users[index].role == 0) {
+                localStorage.setItem("user_login", JSON.stringify(users[index].user_id));
+                window.location.href = "/index.html";
+            } else {
+                localStorage.setItem("admin_login", JSON.stringify(users[index].user_id));
+                window.location.href = "/product-management.html";
+            }
         }
-
     } else {
         warnL.innerHTML = "Tài khoản hoặc mật khẩu không đúng !";
     }
@@ -114,3 +118,12 @@ const validatePassword = (pass) => {
         .toLowerCase()
         .match(/^.*(?=.{6,})(?=.*[a-zA-Z])(?=.*\d).*$/);
 }
+
+const allInput = document.querySelectorAll(".form-input")
+
+allInput.forEach(item => {
+    item.addEventListener("click", () => {
+        warnL.innerHTML = "";
+        warnR.innerHTML = "";
+    })
+})

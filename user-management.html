@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quản lý người dùng</title>
     <link rel="stylesheet" href="./css/management.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -50,31 +50,26 @@
             <p id="warn-box"></p>
             <form id="form">
                 <div class="input-form">
-                    <label for="usename">Tên đăng nhập <span>(*)</span></label><br>
-                    <input type="text" id="usename" placeholder="Tên đăng nhập" readonly>
+                    <label for="usename">Tên đăng nhập</label><br>
+                    <input type="text" id="usename" style="background-color: rgb(172, 172, 172); color: #fff;" readonly>
                     <p style="color: red;" id="err_username"></p>
                 </div>
                 <div class="input-form">
                     <label for="fullname">Họ và tên</label><br>
-                    <input type="text" id="fullname" placeholder="Họ và tên">
+                    <input type="text" id="fullname" style="background-color: rgb(172, 172, 172); color: #fff;" readonly>
                 </div>
                 <div class="input-form">
-                    <label for="email">Email <span>(*)</span></label><br>
-                    <input type="email" id="email" placeholder="Địa chỉ email" readonly>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" readonly style="background-color: rgb(172, 172, 172); color: #fff;">
                     <p style="color: red;" id="err_email"></p>
                 </div>
                 <div class="input-form">
-                    <label for="password">Mật khẩu <span>(*)</span></label><br>
-                    <input type="password" id="password" placeholder="Mật khẩu" readonly>
+                    <label for="password">Mật khẩu</label><br>
+                    <input type="password" id="password" readonly style="background-color: rgb(172, 172, 172); color: #fff;">
                     <p style="color: red;" id="err_password"></p>
                 </div>
                 <div class="input-form">
-                    <label for="confirmpassword">Nhập lại mật khẩu<span>(*)</span></label><br>
-                    <input type="password" id="confirmpassword" placeholder="Nhập lại mật khẩu" readonly>
-                    <p style="color: red;" id="err_confirmpassword"></p>
-                </div>
-                <div class="input-form">
-                    <label for="role">Vai trò <span>(*)</span> :</label>
+                    <label for="role">Vai trò :</label>
                     <select id="role" required>
                         <option value="0" selected>Khách hàng</option>
                         <option value="1">Admin</option>
@@ -88,18 +83,6 @@
     <div class="main">
         <nav class="navmain">
             <ul>
-                <li class="notifications">
-                    <div>
-                        <span>0</span>
-                    </div>
-                    <i class="fa-regular fa-bell"></i>
-                </li>
-                <li class="notifications">
-                    <div>
-                        <span>0</span>
-                    </div>
-                    <i class="fa-regular fa-message"></i>
-                </li>
                 <li>
                     <div class="dropdown">
                         <div class="dropbtn" id="drop">
@@ -136,6 +119,7 @@
                             <th>FullName</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Trạng thái</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>

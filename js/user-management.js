@@ -57,6 +57,19 @@ const handlePagination = (page = 0) => {
 }
 showPagination();
 
+const handleStatusUser = (statusCode) => {
+    if (statusCode !== undefined) {
+        switch (statusCode) {
+            case 0:
+                return `<button style="background-color: brown; color: #fff;border-radius:10px;padding:10px">Đang bị khóa</button>`;
+            case 1:
+                return `<button style="background-color: green; color: #fff;border-radius:10px;padding:10px">Đang hoạt động</button>`;
+        }
+    } else {
+        return `<button style="background-color: green; color: #fff;border-radius:10px;padding:10px">Đang hoạt động</button>`;
+    }
+}
+
 // hiển thị bảng thông tin người dùng dựa trên data truyền vào
 function loadUsers(data = users) {
 
@@ -78,8 +91,9 @@ function loadUsers(data = users) {
                 <td>${user.fullname}</td>
                 <td>${user.email}</td>
                 <td>${user.role == 1 ? "Admin" : "User"}</td>
-                <td><button style="background-color: rgb(47, 189, 245);" onclick="clickUpdate(${user.user_id})">Sửa</button></td>
-                <td><button style="background-color: rgb(189, 67, 37);" onclick="deleteUser(${user.user_id})">Xóa</button></td>
+                <td>${handleStatusUser(user.status)}</td>
+                <td><button ${user.role == 0 ? 'style = "background-color: rgb(47, 189, 245);"' : 'style = "display:none;"'} onclick="clickUpdate(${user.user_id})">Sửa</button></td>
+                <td><button ${user.status == 0 ? "style = 'background-color : green;'" : user.role == 1 ? "style='display:none;'" : "style = 'background-color : brown;'"} onclick="blockUser(${user.user_id})">${user.status == 0 ? "Mở khóa" : "Khóa"}</button></td>
             </tr>
         `
     });
@@ -139,24 +153,26 @@ document.getElementById("form").addEventListener("submit", function (e) {
 })
 
 // xóa
-function deleteUser(user_id) {
+function blockUser(user_id) {
 
-    const index = users.findIndex(user => user.user_id == user_id)
-
+    const index = users.findIndex(user => user.user_id == user_id);
+    console.log(index);
     if (index == -1) {
         alert("Không tìm thấy User !")
     } else {
-        if (users[index].role == 0) {
-            const result = confirm("Bạn có chắc muốn xóa !")
+            const result = confirm("Bạn có chắc muốn thay đổi trạng thái tài khoản này ?")
             if (!result) {
-                return
+                return;
             }
-            users.splice(index, 1)
-            localStorage.setItem("users", JSON.stringify(users))
-            loadUsers()
-        } else {
-            alert("không được xóa ")
-        }
+            if (users[index].status == 1) {
+                users[index].status = 0;
+                localStorage.setItem("users", JSON.stringify(users))
+                loadUsers()
+            } else {
+                users[index].status = 1;
+                localStorage.setItem("users", JSON.stringify(users))
+                loadUsers()
+            }
     }
 }
 
@@ -204,13 +220,6 @@ function checkInfo(user) {
         check = false;
     } else {
         errPassword.innerHTML = "";
-
-        if (confirmPasswordHTML.value !== passwordHTML.value) {
-            errConfirmPassword.innerHTML = "Xác nhận lại mật khẩu";
-            check = false;
-        } else {
-            errConfirmPassword.innerHTML = "";
-        }
     }
 
     return check;

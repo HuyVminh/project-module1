@@ -49,7 +49,7 @@ const handleStatusOrder = (statusCode) => {
         case 2:
             return `<button style="background-color: green; color: #fff;border-radius:10px;padding:10px">Đã xác nhận</button>`;
         case 3:
-            return `<button style="background-color: red; color: #fff;border-radius:10px;padding:10px">Bị từ chối</button>`;
+            return `<button style="background-color: brown; color: #fff;border-radius:10px;padding:10px">Bị từ chối</button>`;
     }
 }
 
@@ -75,13 +75,13 @@ function showOrderDetail(id) {
     let value = orders[index];
     let string1 = `<p>Chi tiết đơn hàng</p>
                     <div class="detailinfo">
-                        <span>Mã đơn hàng :&emsp;</span><span class="info-user">${value.order_id}</span>&emsp;
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        <button onclick="accept(${value.order_id})" class="${value.status == 1 ? "" : "not_click"}" style="background-color: orange; cursor: pointer; margin-bottom: 10px; position: relactive;">Xác nhận</button><br>     
-                        <span>Họ và tên người đặt hàng :&emsp;
-                        </span><span class="info-user">${value.user_fullname}</span>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span>Mã đơn hàng :&emsp;</span><span class="info-user">${value.order_id}</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <button onclick="accept(${value.order_id})" class="${value.status == 1 ? "" : "not_click"}" style="background-color: green; cursor: pointer; margin-bottom: 10px;">Xác nhận</button>     
+                        &emsp;
                         <button onclick="cancel(${value.order_id})" class="${value.status == 1 ? "" : "not_click"}" style = "background-color: brown; cursor: pointer;" >Từ chối</button ><br>
+                        <span>Họ và tên người đặt hàng :&emsp;
+                        </span><span class="info-user">${value.user_fullname}</span><br>
                         <span>Ghi chú :&emsp;
                         </span><span class="info-user">${value.note}</span><br>
                         <span>Thời gian tạo đơn đặt hàng :&emsp;

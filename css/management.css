@@ -67,6 +67,7 @@ h3 {
 
 .main {
     margin-left: 350px;
+    margin-bottom: 40px;
 }
 
 .main nav {
@@ -232,7 +233,7 @@ h3 {
 .form-search div {
     width: 97%;
     background-color: #fff;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: relative;
@@ -240,7 +241,7 @@ h3 {
 
 .form-search div input {
     height: 45px;
-    width: 83%;
+    width: 81%;
     margin: 5px 30px;
     font-size: 1.2rem;
     border: none;
@@ -248,7 +249,7 @@ h3 {
 }
 
 .form-search div button {
-    width: 120px ;
+    width: 120px;
     color: #fff;
     background-color: orange;
     font-size: 1.2rem;
@@ -353,5 +354,3 @@ tbody tr button:active {
 .not_click {
     display: none;
 }
-
-bor

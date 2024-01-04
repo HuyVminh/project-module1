@@ -16,6 +16,7 @@ show(true);
 function logout() {
     localStorage.setItem("user_login", JSON.stringify(""));
     show(true);
+    location.href = "./index.html";
 }
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
@@ -34,6 +35,7 @@ document.getElementById("drop").addEventListener("click", function (event) {
     event.stopPropagation();
     document.getElementById("myDropdown").classList.toggle("show");
 });
+
 function loadInfo() {
     // lấy id với mảng các người dùng về để tìm thông tin
     const idUserLogin = JSON.parse(localStorage.getItem("user_login"))
@@ -59,15 +61,17 @@ function showCart() {
 
     const cart = users[index].cart
     let total = 0
-
-    let products = JSON.parse(localStorage.getItem("products")) || [];
-    let stringHTML = "";
-    cart.forEach(element => {
-        let indexProduct = products.findIndex(product => product.id == element.idProduct)
-        let product = products[indexProduct]
-        total += product.price * element.quantity
-        stringHTML +=
-            `
+    if (cart.length == 0) {
+        document.getElementById("list-cart").innerHTML = `<tr><td colspan="5" style="text-align:center;"><i>Giỏ hàng đang trống !</i></td></tr>`;
+    } else {
+        let products = JSON.parse(localStorage.getItem("products")) || [];
+        let stringHTML = "";
+        cart.forEach(element => {
+            let indexProduct = products.findIndex(product => product.id == element.idProduct);
+            let product = products[indexProduct];
+            total += product.price * element.quantity;
+            stringHTML +=
+                `
             <tr>
                 <td style="width: 70px;">
                     <img src="/img/${product.image}" alt="" width="60px" height="60px">
@@ -78,12 +82,13 @@ function showCart() {
                 <td><i class="fa-solid fa-trash" onclick="delItem(${element.idProduct})"></i></td>
             </tr>
         `
-    });
-    document.getElementById("list-cart").innerHTML = stringHTML;
-    document.getElementById("username-buy").innerHTML = users[index].fullname;
-    document.getElementById("email-buy").innerHTML = users[index].email;
-    document.getElementById("total-cash1").innerText = `${Number(total).toLocaleString('vi-VN')} đ`;
-    document.getElementById("total-cash2").innerText = `${Number(total).toLocaleString('vi-VN')} đ`;
+        });
+        document.getElementById("list-cart").innerHTML = stringHTML;
+        document.getElementById("username-buy").innerHTML = users[index].fullname;
+        document.getElementById("email-buy").innerHTML = users[index].email;
+        document.getElementById("total-cash1").innerText = `${Number(total).toLocaleString('vi-VN')} đ`;
+        document.getElementById("total-cash2").innerText = `${Number(total).toLocaleString('vi-VN')} đ`;
+    }
 }
 showCart();
 

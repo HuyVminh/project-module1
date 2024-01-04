@@ -54,7 +54,7 @@ function loadInfo() {
 
 loadInfo();
 
-const products = JSON.parse(localStorage.getItem("products"));
+const products = JSON.parse(localStorage.getItem("products"))||[];
 let totalProduct = products.length; // tổng số sp
 let count = 10;// số sp trên 1 trang
 let pageCurrent = 0;
@@ -82,7 +82,7 @@ const handlePagination = (page = 0) => {
 }
 
 function loadProducts(data) {
-    const products = JSON.parse(localStorage.getItem("products"));
+    const products = JSON.parse(localStorage.getItem("products"))||[];
     // nếu ko có data(- lúc gọi loadUsers() -) thì dùng users để vẽ tất cả user
     if (!data) {
         const textSearch = document.getElementById("search").value.trim();
@@ -101,7 +101,7 @@ function loadProducts(data) {
                 <td style="width: 200px;">${product.name}</td>
                 <td>${product.category}</td>
                 <td style="width: 300px;">${product.info.substring(0,100)}</td>
-                <td style="text-align: end;">${Number(product.price).toLocaleString('vi-VN')}</td>
+                <td style="text-align: end;">${Number(product.price).toLocaleString('vi-VN')} đ</td>
                 <td style="width: 50px;">${product.stock}</td>
                 <td><button style="background-color: rgb(47, 189, 245);" onclick="clickUpdate(${product.id})">Sửa</button></td>
                 <td><button style="background-color: rgb(189, 67, 37);" onclick="deleteProduct(${product.id})">Xóa</button></td>
@@ -116,7 +116,7 @@ handlePagination();
 document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault()
 
-    const products = JSON.parse(localStorage.getItem("products"));
+    const products = JSON.parse(localStorage.getItem("products"))||[];
 
     if (idUpdateGlobal != null) {
         const index = products.findIndex(product => product.id == idUpdateGlobal);
@@ -162,9 +162,9 @@ document.getElementById("form").addEventListener("submit", function (e) {
 })
 
 function deleteProduct(id) {
-    const products = JSON.parse(localStorage.getItem("products"))
+    const products = JSON.parse(localStorage.getItem("products")) || [];
 
-    const index = products.findIndex(product => product.id == id)
+    const index = products.findIndex(product => product.id == id);
 
     if (index == -1) {
         alert("Không tìm thấy sản phẩm !")
@@ -177,7 +177,7 @@ function deleteProduct(id) {
         localStorage.setItem("products", JSON.stringify(products))
         handlePagination();
         showPagination();
-        // location.reload();
+        location.reload();
     }
 }
 
@@ -193,7 +193,7 @@ function getNewID(products) {
 }
 
 function clickUpdate(id) {
-    const products = JSON.parse(localStorage.getItem("products"))
+    const products = JSON.parse(localStorage.getItem("products")) || [];
 
     const index = products.findIndex(product => product.id == id)
 

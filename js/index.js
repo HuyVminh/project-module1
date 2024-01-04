@@ -94,3 +94,16 @@ function clickProduct(id) {
     localStorage.setItem("product-info", JSON.stringify(item));
     location.href = "/product-info.html";
 }
+
+function loadCart() {
+    const idUserLogin = JSON.parse(localStorage.getItem("user_login"));
+    const users = JSON.parse(localStorage.getItem("users"));
+    // tìm xem có user ko
+    const index = users.findIndex(user => user.user_id == idUserLogin);
+    // ko có thì đi login
+    if (index == -1) {
+        alert("Hãy đăng nhập để truy cập giỏ hàng !");
+    } else {
+        location.href = "./cart.html";
+    }
+}

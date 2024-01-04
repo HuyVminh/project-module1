@@ -105,7 +105,7 @@ handlePagination();
 function loadCategory() {
     let cat = JSON.parse(localStorage.getItem("categories"));
     let str = ""
-    cat.forEach(category => { str += `<div onclick="filterCategory(${category.id})">${category.name}</div >`});
+    cat.forEach(category => { str += `<div onclick="filterCategory(${category.id})">${category.name}</div >` });
     document.getElementById("catagory_list").innerHTML = str;
 }
 loadCategory();
@@ -117,6 +117,7 @@ function filterCategory(id) {
     // lọc ra những người mình cần tìm
     const arrProduct = products.filter(product => product.category.includes(catSearch));
     // vẽ lại giao diện
+    document.getElementById("category_name").innerHTML = catSearch.toUpperCase();
     loadProducts(arrProduct);
 }
 
@@ -126,3 +127,17 @@ function clickProduct(id) {
     localStorage.setItem("product-info", JSON.stringify(item));
     location.href = "/product-info.html";
 }
+
+function loadCart() {
+    const idUserLogin = JSON.parse(localStorage.getItem("user_login"));
+    const users = JSON.parse(localStorage.getItem("users"));
+    // tìm xem có user ko
+    const index = users.findIndex(user => user.user_id == idUserLogin);
+    // ko có thì đi login
+    if (index == -1) {
+        alert("Hãy đăng nhập để truy cập giỏ hàng !");
+    } else {
+        location.href = "./cart.html";
+    }
+}
+

@@ -15,18 +15,19 @@
     <header>
         <div id="headerTop">
             <div id="logoHeader">
-                <img src="img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
+                <img src="./img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
             </div>
             <div id="headerSearch">
-                <input type="text" placeholder="  Tìm kiếm sản phẩm" id="searchText">
-                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" placeholder="Tìm kiếm sản phẩm" id="searchText">
+                <button id="searchBtn" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div id="headerBtn">
-                <button type="button" class="btn" style="align-items: center;"><i class="fa-solid fa-bag-shopping"></i> <a href="/cart.html" style="text-decoration: none; color: black;"> Giỏ hàng</a></button>
+                <button type="button" class="btn" style="align-items: center;" onclick="loadCart()"><i
+                        class="fa-solid fa-bag-shopping"></i> Giỏ hàng</button>
                 <div>
                     <div class="dropdown" id="dropdown">
                         <div class="dropbtn" id="drop">
-                            <img id="avatar" src="/img/avatar.jpg" alt="img" width="50px">
+                            <img id="avatar" src="./img/avatar.jpg" alt="img" width="50px">
                             <div style="padding-top: 20px; line-height: 0.5;">
                                 <p>Xin Chào,</p>
                                 <p id="username" style="font-weight: 600;">Đăng nhập</a></p>
@@ -100,7 +101,7 @@
                 <p>THỜI TRANG - ĐA DẠNG - HIỆU QUẢ</p>
             </div>
             <div class="productNewHome" id="productsNewList">
-                
+
             </div>
         </div>
         <div class="banner">

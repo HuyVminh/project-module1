@@ -18,12 +18,12 @@
                 <img src="/img/bicycle-high-resolution-logo-color-on-transparent-background.png" alt="" width="150px">
             </div>
             <div id="headerSearch">
-                <input type="text" placeholder="  Tìm kiếm sản phẩm" id="searchText">
+                <input type="text" placeholder="Tìm kiếm sản phẩm" id="searchText">
                 <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div id="headerBtn">
-                <button type="button" class="btn" style="align-items: center;"><i class="fa-solid fa-bag-shopping"></i>
-                    <a href="/cart.html" style="text-decoration: none; color: black;">Giỏ hàng</a></button>
+                <button type="button" class="btn" style="align-items: center;" onclick="loadCart()"><i
+                        class="fa-solid fa-bag-shopping"></i> Giỏ hàng</button>
                 <div>
                     <div class="dropdown" id="dropdown">
                         <div class="dropbtn" id="drop">
@@ -67,21 +67,20 @@
             </div>
             <div class="catagory-container">
                 <div class="catabar">
-                    <a href="/index.html"
-                        style="text-decoration: none; color: orange; font-weight: 600; font-size: 1.1rem;">TRANG CHỦ</a>
+                    <a href="/catagory.html"
+                        style="text-decoration: none; color: orange; font-weight: 600; font-size: 1.1rem;">SẢN PHẨM</a>
                     <span style="font-size: 1.3rem; color: rgba(120, 120, 120, 0.584);">&emsp13;/&emsp14;</span>
-                    <span>SẢN PHẨM</span>
+                    <span id="category_name"></span>
                 </div>
                 <div id="product_list">
-                    
+
                 </div>
                 <nav aria-label="...">
                     <ul class="pagination pagination-lg">
-                        
+
                     </ul>
                 </nav>
             </div>
-        </div>
         </div>
         <div class="support">
             <div class="supportinfo">

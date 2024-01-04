@@ -16,6 +16,7 @@ show(true);
 function logout() {
     localStorage.setItem("user_login", JSON.stringify(""));
     show(true);
+    location.href = "./index.html";
 }
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
@@ -66,7 +67,7 @@ function loadItem() {
                 <p>${item.info}</p>
             </div>
             <div class="count">
-                <span id="priceitem">${Number(item.price).toLocaleString('vi-VN')} đ</span>&emsp;&emsp;&emsp;
+                <span id="priceitem">${Number(item.price).toLocaleString('vi-VN')} đ</span>&emsp;&emsp;&emsp;&emsp;&emsp;
                 <button id="decrement">-</button>
                 <input type="number" id="numberInput" value="1" readonly>
                 <button id="increment">+</button>
@@ -126,4 +127,17 @@ function addCart(idPro) {
     }
     localStorage.setItem("users", JSON.stringify(users));
     alert("Đã thêm vào giỏ hàng thành công !");
+}
+
+function loadCart() {
+    const idUserLogin = JSON.parse(localStorage.getItem("user_login"));
+    const users = JSON.parse(localStorage.getItem("users"));
+    // tìm xem có user ko
+    const index = users.findIndex(user => user.user_id == idUserLogin);
+    // ko có thì đi login
+    if (index == -1) {
+        alert("Hãy đăng nhập để truy cập giỏ hàng !");
+    } else {
+        location.href = "./cart.html";
+    }
 }
